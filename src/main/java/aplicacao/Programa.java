@@ -19,7 +19,6 @@ public class Programa {
         /*
         System.out.println();
         System.out.println("=== CADASTRO DE PESSOAS ===");
-        System.out.println();
         System.out.print("Nome: ");
         String nome = sc.nextLine();
         System.out.print("E-mail: ");
@@ -29,18 +28,29 @@ public class Programa {
         em.getTransaction().begin();
         em.persist(pessoa);
         em.getTransaction().commit();
-
-        System.out.println();
         System.out.println("Cadastro realizado com sucesso!");
+        System.out.println();
         */
 
         // Filtro por ID:
+        /*
         System.out.println();
         System.out.println("=== FILTRO DE PESSOAS POR ID ===");
         System.out.print("ID: ");
         Pessoa pessoa = em.find(Pessoa.class, sc.nextInt());
         System.out.println(pessoa);
         System.out.println();
+        */
+
+        // Exluindo cadastro:
+        System.out.println();
+        System.out.println("=== EXCLUINDO CADASTRO DE PESSOAS ===");
+        System.out.print("ID: ");
+        em.getTransaction().begin();
+        Pessoa pessoa = em.find(Pessoa.class, sc.nextInt());
+        em.remove(pessoa);
+        em.getTransaction().commit();
+        System.out.println("Cadastro excluído com sucesso!");
 
         em.close();
         emf.close();
