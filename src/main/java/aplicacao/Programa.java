@@ -15,6 +15,8 @@ public class Programa {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("exemplo-jpa");
         EntityManager em = emf.createEntityManager();
 
+        // Cadastro de pessoas:
+        /*
         System.out.println();
         System.out.println("=== CADASTRO DE PESSOAS ===");
         System.out.println();
@@ -30,7 +32,18 @@ public class Programa {
 
         System.out.println();
         System.out.println("Cadastro realizado com sucesso!");
+        */
 
+        // Filtro por ID:
+        System.out.println();
+        System.out.println("=== FILTRO DE PESSOAS POR ID ===");
+        System.out.print("ID: ");
+        Pessoa pessoa = em.find(Pessoa.class, sc.nextInt());
+        System.out.println(pessoa);
+        System.out.println();
+
+        em.close();
+        emf.close();
         sc.close();
 
     }
